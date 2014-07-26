@@ -39,6 +39,7 @@ public class goodController : MonoBehaviour {
 		if(smackable){
 			rigidbody.maxAngularVelocity = maxVelo; 
 			rigidbody.velocity = Vector3.zero;
+			rigidbody.
 			rigidbody.angularVelocity.Set(0f, 10000f, 0f);
 			mouseSensitivity = 100000;
 			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothFollow>().enabled = false;
