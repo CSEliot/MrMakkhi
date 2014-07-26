@@ -29,7 +29,7 @@ public class goodController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log("HEY THE MAX ANG VELO IS: " + rigidbody.maxAngularVelocity);
+		//Debug.Log("HEY THE MAX ANG VELO IS: " + rigidbody.maxAngularVelocity);
 
 		if(Input.GetAxis("Smack") > 0){
 			smackable = true;
