@@ -1,0 +1,443 @@
+fileFormatVersion: 2
+guid: 3c334f0f88de84795941da615982d240
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: _Mid
+    100002: Bicep_L
+    100004: Bicep_L_0
+    100006: Bicep_R
+    100008: Bicep_R_0
+    100010: boob_L
+    100012: boob_R
+    100014: boobholder_L
+    100016: boobholder_R
+    100018: calf_R
+    100020: CenterBone
+    100022: Chest
+    100024: crotch
+    100026: //RootNode
+    100028: Foot_R
+    100030: FootContol_R
+    100032: Forearm_L
+    100034: Forearm_L_0
+    100036: Forearm_R
+    100038: Forearm_R_0
+    100040: groin_R
+    100042: Hand_L
+    100044: Hand_L_0
+    100046: Hand_R
+    100048: Hand_R_0
+    100050: Knee_L
+    100052: Neck
+    100054: ribs_L
+    100056: ribs_R
+    100058: Shoulder_L
+    100060: Shoulder_R
+    100062: swat1
+    100064: swat2
+    100066: Swatter_001
+    100068: Swatter_bones
+    100070: thigh_R
+    400000: _Mid
+    400002: Bicep_L
+    400004: Bicep_L_0
+    400006: Bicep_R
+    400008: Bicep_R_0
+    400010: boob_L
+    400012: boob_R
+    400014: boobholder_L
+    400016: boobholder_R
+    400018: calf_R
+    400020: CenterBone
+    400022: Chest
+    400024: crotch
+    400026: //RootNode
+    400028: Foot_R
+    400030: FootContol_R
+    400032: Forearm_L
+    400034: Forearm_L_0
+    400036: Forearm_R
+    400038: Forearm_R_0
+    400040: groin_R
+    400042: Hand_L
+    400044: Hand_L_0
+    400046: Hand_R
+    400048: Hand_R_0
+    400050: Knee_L
+    400052: Neck
+    400054: ribs_L
+    400056: ribs_R
+    400058: Shoulder_L
+    400060: Shoulder_R
+    400062: swat1
+    400064: swat2
+    400066: Swatter_001
+    400068: Swatter_bones
+    400070: thigh_R
+    4300000: Bicep_L
+    4300002: Forearm_L
+    4300004: Hand_L
+    4300006: Hand_R
+    4300008: Forearm_R
+    4300010: Bicep_R
+    4300012: Swatter_001
+    7400000: Default Take
+    7400002: Swatter_Hop
+    7400004: Swatter_Idle
+    9500000: //RootNode
+    13700000: Bicep_L
+    13700002: Bicep_R
+    13700004: Forearm_L
+    13700006: Forearm_R
+    13700008: Hand_L
+    13700010: Hand_R
+    13700012: Swatter_001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bicep_L
+        weight: 1
+      - path: Bicep_R
+        weight: 1
+      - path: Forearm_L
+        weight: 1
+      - path: Forearm_R
+        weight: 1
+      - path: Hand_L
+        weight: 1
+      - path: Hand_R
+        weight: 1
+      - path: Swatter_001
+        weight: 1
+      - path: Swatter_bones
+        weight: 1
+      - path: Swatter_bones/CenterBone
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_L/boob_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_R/boob_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck/swat1
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck/swat1/swat2
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0/Forearm_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0/Forearm_L_0/Hand_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0/Forearm_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0/Forearm_R_0/Hand_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/ribs_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/ribs_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/crotch
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R/thigh_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R/thigh_R/calf_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/Knee_L
+        weight: 1
+      - path: Swatter_bones/FootContol_R
+        weight: 1
+      - path: Swatter_bones/FootContol_R/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Swatter_Hop
+      takeName: Swatter_Hop
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bicep_L
+        weight: 1
+      - path: Bicep_R
+        weight: 1
+      - path: Forearm_L
+        weight: 1
+      - path: Forearm_R
+        weight: 1
+      - path: Hand_L
+        weight: 1
+      - path: Hand_R
+        weight: 1
+      - path: Swatter_001
+        weight: 1
+      - path: Swatter_bones
+        weight: 1
+      - path: Swatter_bones/CenterBone
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_L/boob_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_R/boob_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck/swat1
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck/swat1/swat2
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0/Forearm_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0/Forearm_L_0/Hand_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0/Forearm_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0/Forearm_R_0/Hand_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/ribs_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/ribs_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/crotch
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R/thigh_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R/thigh_R/calf_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/Knee_L
+        weight: 1
+      - path: Swatter_bones/FootContol_R
+        weight: 1
+      - path: Swatter_bones/FootContol_R/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Swatter_Idle
+      takeName: Swatter_Idle
+      firstFrame: 0
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bicep_L
+        weight: 1
+      - path: Bicep_R
+        weight: 1
+      - path: Forearm_L
+        weight: 1
+      - path: Forearm_R
+        weight: 1
+      - path: Hand_L
+        weight: 1
+      - path: Hand_R
+        weight: 1
+      - path: Swatter_001
+        weight: 1
+      - path: Swatter_bones
+        weight: 1
+      - path: Swatter_bones/CenterBone
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_L/boob_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/boobholder_R/boob_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck/swat1
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Neck/swat1/swat2
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0/Forearm_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_L/Bicep_L_0/Forearm_L_0/Hand_L_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0/Forearm_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/Chest/Shoulder_R/Bicep_R_0/Forearm_R_0/Hand_R_0
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/ribs_L
+        weight: 1
+      - path: Swatter_bones/CenterBone/_Mid/ribs_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/crotch
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R/thigh_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/groin_R/thigh_R/calf_R
+        weight: 1
+      - path: Swatter_bones/CenterBone/Knee_L
+        weight: 1
+      - path: Swatter_bones/FootContol_R
+        weight: 1
+      - path: Swatter_bones/FootContol_R/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: Swatter_bones
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
