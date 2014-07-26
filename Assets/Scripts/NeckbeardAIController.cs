@@ -1,90 +1,123 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NeckbeardAIController : MonoBehaviour
 {
-	
-	public enum BehaviorType
-	{
-		STANDING,
-		PACING,
-		AVOIDING
-	}
-	
-	protected enum State
-	{
-		IDLE,
-		ACTIVE,
-		PAUSED
-	}
-	
-	public BehaviorType type;
-	public Vector3 moveTo;
-	public Vector3 moveFrom;
-	private Vector3 temp;
-	private TweenComponent tweener;
-	private State state;
-	
-	// Use this for initialization
-	void Start ()
-	{
-		tweener = this.transform.GetComponent<TweenComponent> ();
-		state = State.IDLE;
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		switch (type) {
-		case BehaviorType.STANDING:
-			StandingBehavior ();
-			break;
-		case BehaviorType.PACING:
-			PacingBehavior ();
-			break;
-		case BehaviorType.AVOIDING:
-			AvoidingBehavior ();
-			break;
-		}
-	}
-	
-	private void StandingBehavior ()
-	{
-			
-	}
-	
-	private void PacingBehavior ()
-	{
-		if (this.transform.position.Equals (this.moveTo)) {
-			print ("POSITION: " + transform.position.ToString());
-			print ("TARGET: " + moveTo.ToString());
-				
-			print ("FINISH PACE");
-			temp.x = moveFrom.x;
-			temp.y = moveFrom.y;
-			temp.z = moveFrom.z;
-			moveFrom.x = moveTo.x;
-			moveFrom.y = moveTo.y;
-			moveFrom.z = moveTo.z;
-			moveTo.x = temp.x;
-			moveTo.y = temp.y;
-			moveTo.z = temp.z;
-			
-			print ("MOVE TO: " + moveTo.ToString ());
-			print ("MOVE FROM: " + moveFrom.ToString ());
-			
-			state = State.IDLE;
-		}
-		else if (state == State.IDLE)
-		{
-			print ("START PACE");
-			tweener.StartMovement (moveTo, 10f);
-			state = State.ACTIVE;
-		}
-	}
-	
-	private void AvoidingBehavior ()
-	{
-		
-	}
+
+    public enum BehaviorType
+    {
+        STANDING,
+        PACING,
+        AVOIDING
+    }
+
+    public enum NeckbeardState
+    {
+        IDLE,
+        FLYING,
+        ACTIVE,
+        DEAD,
+        PAUSED
+    }
+
+    private const float INACTIVE_TIME = 10f;
+
+    public BehaviorType type;
+    public Vector3 moveTo;
+    public Vector3 moveFrom;
+    private Vector3 temp;
+    private TweenComponent tweener;
+    public NeckbeardState state;
+    private bool hasFlies;
+    private int numFlies;
+    private List<GameObject> flies;
+    private float deadTime;
+
+    // Use this for initialization
+    void Start()
+    {
+        tweener = this.transform.GetComponent<TweenComponent>();
+        state = NeckbeardState.IDLE;
+        flies = new List<GameObject>( 100 );
+        deadTime = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if ( state != NeckbeardState.FLYING )
+        {
+            switch ( type )
+            {
+                case BehaviorType.STANDING:
+                    StandingBehavior();
+                    break;
+                case BehaviorType.PACING:
+                    PacingBehavior();
+                    break;
+                case BehaviorType.AVOIDING:
+                    AvoidingBehavior();
+                    break;
+            }
+        }
+        else if ( state == NeckbeardState.FLYING )
+        {
+            deadTime += Time.deltaTime;
+            if (deadTime > INACTIVE_TIME)
+            {
+                state = NeckbeardState.DEAD;
+            }
+        }
+    }
+
+    private void StandingBehavior()
+    {
+
+    }
+
+    private void PacingBehavior()
+    {
+        if ( this.transform.position.Equals( this.moveTo ) && state == NeckbeardState.ACTIVE )
+        {
+            temp.x = moveFrom.x;
+            temp.y = moveFrom.y;
+            temp.z = moveFrom.z;
+            moveFrom.x = moveTo.x;
+            moveFrom.y = moveTo.y;
+            moveFrom.z = moveTo.z;
+            moveTo.x = temp.x;
+            moveTo.y = temp.y;
+            moveTo.z = temp.z;
+
+            state = NeckbeardState.IDLE;
+        }
+        else if ( state == NeckbeardState.IDLE )
+        {
+            tweener.StartMovement( moveTo, 10f );
+            state = NeckbeardState.ACTIVE;
+        }
+    }
+
+    private void AvoidingBehavior()
+    {
+
+    }
+
+    void OnTriggerEnter( Collider col )
+    {
+        if ( col.tag.Equals( "Fly" ) )
+        {
+            hasFlies = true;
+            if ( !flies.Contains( col.gameObject ) )
+            {
+                flies.Add( col.gameObject );
+            }
+        }
+        else if ( col.tag.Equals( "Swatter" ) )
+        {
+            state = NeckbeardState.FLYING;
+            this.tag = "NeckbeardDead";
+        }
+    }
 }
