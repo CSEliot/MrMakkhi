@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: 6e3242069dba84390b1c02dc98bbb754
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: BackCalf_L
+    100002: BackCalf_R
+    100004: BackFoot_L
+    100006: BackFoot_R
+    100008: BackThigh_L
+    100010: BackThigh_R
+    100012: BigWing_L
+    100014: BigWing_R
+    100016: Butt
+    100018: CenterBone
+    100020: Chest
+    100022: Fly
+    100024: Fly_Bones
+    100026: FrontCalf_L
+    100028: FrontCalf_R
+    100030: FrontFoot_L
+    100032: FrontFoot_R
+    100034: FrontThigh_L
+    100036: FrontThigh_R
+    100038: //RootNode
+    100040: Head
+    100042: LilWing_L
+    100044: LilWing_R
+    100046: Mid
+    400000: BackCalf_L
+    400002: BackCalf_R
+    400004: BackFoot_L
+    400006: BackFoot_R
+    400008: BackThigh_L
+    400010: BackThigh_R
+    400012: BigWing_L
+    400014: BigWing_R
+    400016: Butt
+    400018: CenterBone
+    400020: Chest
+    400022: Fly
+    400024: Fly_Bones
+    400026: FrontCalf_L
+    400028: FrontCalf_R
+    400030: FrontFoot_L
+    400032: FrontFoot_R
+    400034: FrontThigh_L
+    400036: FrontThigh_R
+    400038: //RootNode
+    400040: Head
+    400042: LilWing_L
+    400044: LilWing_R
+    400046: Mid
+    4300000: Fly
+    7400000: Default Take
+    7400002: Fly_Death
+    7400004: Fly_Fly
+    7400006: Fly_Idle
+    9500000: //RootNode
+    13700000: Fly
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 1
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Fly
+        weight: 1
+      - path: Fly_Bones
+        weight: 1
+      - path: Fly_Bones/CenterBone
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/Head
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L/FrontCalf_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L/FrontCalf_L/FrontFoot_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/BigWing_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/LilWing_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R/FrontCalf_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R/FrontCalf_R/FrontFoot_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/BigWing_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/LilWing_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Butt
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L/BackCalf_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L/BackCalf_L/BackFoot_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R/BackCalf_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R/BackCalf_R/BackFoot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fly_Death
+      takeName: Fly_Death
+      firstFrame: -1
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Fly
+        weight: 1
+      - path: Fly_Bones
+        weight: 1
+      - path: Fly_Bones/CenterBone
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/Head
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L/FrontCalf_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L/FrontCalf_L/FrontFoot_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/BigWing_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/LilWing_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R/FrontCalf_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R/FrontCalf_R/FrontFoot_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/BigWing_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/LilWing_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Butt
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L/BackCalf_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L/BackCalf_L/BackFoot_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R/BackCalf_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R/BackCalf_R/BackFoot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fly_Fly
+      takeName: Fly_Fly
+      firstFrame: 0
+      lastFrame: 53
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Fly
+        weight: 1
+      - path: Fly_Bones
+        weight: 1
+      - path: Fly_Bones/CenterBone
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/Head
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L/FrontCalf_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L/FrontCalf_L/FrontFoot_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/BigWing_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/LilWing_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R/FrontCalf_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R/FrontCalf_R/FrontFoot_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/BigWing_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/LilWing_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Butt
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L/BackCalf_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L/BackCalf_L/BackFoot_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R/BackCalf_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R/BackCalf_R/BackFoot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fly_Idle
+      takeName: Fly_Idle
+      firstFrame: 0
+      lastFrame: 163
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Fly
+        weight: 1
+      - path: Fly_Bones
+        weight: 1
+      - path: Fly_Bones/CenterBone
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/Head
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L/FrontCalf_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_L/FrontCalf_L/FrontFoot_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/BigWing_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/LilWing_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R/FrontCalf_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/FrontThigh_R/FrontCalf_R/FrontFoot_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/BigWing_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Mid/Chest/LilWing_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/Butt
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L/BackCalf_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_L/BackCalf_L/BackFoot_L
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R/BackCalf_R
+        weight: 1
+      - path: Fly_Bones/CenterBone/BackThigh_R/BackCalf_R/BackFoot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: Fly_Bones
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
