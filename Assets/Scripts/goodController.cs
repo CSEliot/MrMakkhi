@@ -3,9 +3,10 @@ using System.Collections;
 
 public class goodController : MonoBehaviour {
 
-	public float movementSpeed;
+	public float acceleration;
+	private float movementSpeed;
 	public float mouseSensitivity;
-	public float maxVelo;
+	public float maxVelo; 
 	public float forcePush;
 	private float jumpSpeed;
 	private Vector3 speed;
@@ -16,44 +17,73 @@ public class goodController : MonoBehaviour {
 	private float rotLeftRight;
 	public Animator animator;
 	private bool smackable;
-
+	private GameObject[] biceps;
+	private float bicepHeight;
+	private bool shiftToggleChange;
+	private float oldMovementSpeed;
+	private float topSpeed;
 
 	// Use this for initialization
 	void Start () {
+		Screen.lockCursor = true;
 		jumpSpeed = 3.0f;
+		movementSpeed = 9000f;
+		oldMovementSpeed = 9000f;
 		speed = new Vector3(0f, 0f, 0f);
 		verticalVelocity = 0f;
-		//characterController = GetComponent<CharacterController>();
+		biceps = GameObject.FindGameObjectsWithTag("Bicep");
+		shiftToggleChange = false;
+		smackable = false;
+		bicepHeight = 9000f;
+		topSpeed = 30f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		//Debug.Log("HEY THE MAX ANG VELO IS: " + rigidbody.maxAngularVelocity);
-
-		if(Input.GetAxis("Smack") > 0){
-			smackable = true;
+		if(!shiftToggleChange){
+			if(smackable){
+				if(Input.GetAxis("Smack") == 0){
+					shiftToggleChange = true;
+					smackable = !smackable;
+				}
+			}
+			if(!smackable){
+				if(Input.GetAxis("Smack") > 0){
+					shiftToggleChange = true;
+					smackable = !smackable;
+				}
+			}
 		}else{
-			smackable = false;
+			if(smackable){
+				rigidbody.maxAngularVelocity = maxVelo; 
+				rigidbody.velocity = Vector3.zero;
+				rigidbody.angularVelocity.Set(0f, 10000f, 0f);
+				mouseSensitivity = 100000;
+				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothFollow>().enabled = false;
+				movementSpeed = 0f;
+				bicepHeight = 6000f;
+				shiftToggleChange = false;
+				Debug.Log("SMACKING SPINNING!");
+			}else{
+				mouseSensitivity = 50000;
+				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothFollow>().enabled = true;
+				rigidbody.maxAngularVelocity = 7 ;
+				movementSpeed = 9000f;//oldMovementSpeed;
+				shiftToggleChange = false;
+				bicepHeight = 0f;
+				Debug.Log("NO MORE SPINNING");
+			}
 		}
-		if(smackable){
-			rigidbody.maxAngularVelocity = maxVelo; 
-			rigidbody.velocity = Vector3.zero;
-			rigidbody.
-			rigidbody.angularVelocity.Set(0f, 10000f, 0f);
-			mouseSensitivity = 100000;
-			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothFollow>().enabled = false;
-		}else{
-			mouseSensitivity = 50000;
-			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothFollow>().enabled = true;
-			rigidbody.maxAngularVelocity = 7 ; 
-		}
+		biceps[0].rigidbody.AddForce(Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.0000001f));
+		biceps[1].rigidbody.AddForce(Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.0000001f));
 
 		rotLeftRight = Input.GetAxis("p1_Mouse X") * mouseSensitivity;
 		forwardSpeed = Input.GetAxis("p1_Forward") * movementSpeed;
-		if(forwardSpeed > 0){animator.SetBool("MoveForward", true);
+		if(forwardSpeed > 0 && !smackable){animator.SetBool("MoveForward", true);
 							 animator.SetBool("MoveBackward", false);
-		}else if(forwardSpeed < 0){ animator.SetBool("MoveForward", false);
+		}else if(forwardSpeed < 0 && !smackable){ animator.SetBool("MoveForward", false);
 									animator.SetBool("MoveBackward", true);
 		}else{
 			animator.SetBool("MoveForward", false);
@@ -69,10 +99,24 @@ public class goodController : MonoBehaviour {
 		//speed = transform.rotation * speed;
 		//transform.Translate(speed * Time.deltaTime, 
 		//speed = Vector3.forward;
-		Vector3 tempMove = gameObject.transform.TransformDirection(Vector3.forward * forwardSpeed);
+		Vector3 tempBackVector = new Vector3();
+		if(rigidbody.velocity.magnitude > topSpeed*0.9f && rigidbody.velocity.magnitude < topSpeed*0.92f){
+			tempBackVector = rigidbody.velocity;
+		}
+		if(rigidbody.velocity.magnitude > topSpeed){
+			rigidbody.velocity -= (rigidbody.velocity - tempBackVector);
+		}
+
+
+		Vector3 tempMove = gameObject.transform.TransformDirection(Vector3.forward * forwardSpeed * acceleration);
 		Vector3 tempRotate = gameObject.transform.TransformDirection(Vector3.up * rotLeftRight);
+
+
 		rigidbody.AddForce(tempMove);
 		rigidbody.AddTorque(tempRotate);
+
+
+		//Debug.Log("My magnitude IS. . ." + rigidbody.velocity.magnitude);
 		//characterController.Move(speed * Time.deltaTime);
 	}
 }
