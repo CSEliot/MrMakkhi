@@ -13,6 +13,7 @@ public class TweenComponent : MonoBehaviour
 	{
 		IDLE,
 		ACTIVE,
+        FLYING,
 		PAUSED
 	}
 	
