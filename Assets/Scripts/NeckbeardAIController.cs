@@ -34,6 +34,11 @@ public class NeckbeardAIController : MonoBehaviour
     private List<GameObject> flies;
     private float deadTime;
 
+    public int NumberOfFlies
+    {
+        get { return flies.Count; }
+    }
+
     // Use this for initialization
     void Start()
     {
