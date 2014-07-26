@@ -41,14 +41,16 @@ public class TweenComponent : MonoBehaviour
 		if (state == State.ACTIVE) {
 			switch (movementType) {
 			case MovementType.CONSTANT:
-				if (CheckFinalThreshold ())
-					return;
-
 				delta.x = this.transform.position.x + velocity.x * Time.deltaTime;
 				delta.y = this.transform.position.y + velocity.y * Time.deltaTime;
 				delta.z = this.transform.position.z + velocity.z * Time.deltaTime;
-				this.transform.position = delta;
-				break;
+				
+				if (CheckFinalThreshold (delta))
+					return;
+				else {
+					this.transform.position = delta;
+					break;
+				}
 			case MovementType.SMOOTH:
 				break;
 			}
@@ -57,12 +59,14 @@ public class TweenComponent : MonoBehaviour
 	
 	public void StartMovement (Vector3 moveTo, float rate)
 	{
-		StartMovement(MovementType.CONSTANT, moveTo, rate);
+		StartMovement (MovementType.CONSTANT, moveTo, rate);
 	}
 	
 	public void StartMovement (MovementType type, Vector3 moveTo, float rate)
 	{
-		this.moveTo = moveTo;
+		this.moveTo.x = moveTo.x;
+		this.moveTo.y = moveTo.y;
+		this.moveTo.z = moveTo.z;
 		this.rate = rate;
 		this.movementType = type;
 		this.velocity = AddDirection (moveTo, rate);
@@ -73,7 +77,7 @@ public class TweenComponent : MonoBehaviour
 	protected Vector3 AddDirection (Vector3 moveTo, float rate)
 	{
 		Vector3 position = transform.position;
-		Vector3 v = position - moveTo;
+		Vector3 v = moveTo - position;
 		v.Normalize ();
 		v *= rate;
 
@@ -81,20 +85,20 @@ public class TweenComponent : MonoBehaviour
 
 	}
 	
-	protected bool CheckFinalThreshold ()
+	protected bool CheckFinalThreshold (Vector3 delta)
 	{
-		if ((this.transform.position.x - moveTo.x >= 0 && this.transform.position.x * velocity.x - moveTo.x < 0) ||
-			(this.transform.position.x - moveTo.x <= 0 && this.transform.position.x * velocity.x - moveTo.x > 0)) {
+		if ((this.transform.position.x - moveTo.x >= 0 && delta.x - moveTo.x <= 0) ||
+			(this.transform.position.x - moveTo.x <= 0 && delta.x - moveTo.x >= 0)) {
 			cachedPosition.x = moveTo.x;
 		}
 		
-		if ((this.transform.position.y - moveTo.y >= 0 && this.transform.position.y * velocity.y - moveTo.y < 0) ||
-			(this.transform.position.y - moveTo.y <= 0 && this.transform.position.y * velocity.y - moveTo.y > 0)) {
+		if ((this.transform.position.y - moveTo.y >= 0 && delta.y - moveTo.y <= 0) ||
+			(this.transform.position.y - moveTo.y <= 0 && delta.y - moveTo.y >= 0)) {
 			cachedPosition.y = moveTo.y;
 		}
 		
-		if ((this.transform.position.z - moveTo.z >= 0 && this.transform.position.z * velocity.z - moveTo.z < 0) ||
-			(this.transform.position.z - moveTo.z <= 0 && this.transform.position.z * velocity.z - moveTo.z > 0)) {
+		if ((this.transform.position.z - moveTo.z >= 0 && delta.z - moveTo.z <= 0) ||
+			(this.transform.position.z - moveTo.z <= 0 && delta.z - moveTo.z >= 0)) {
 			cachedPosition.z = moveTo.z;
 		}
 		
