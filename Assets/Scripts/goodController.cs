@@ -29,7 +29,7 @@ public class goodController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log("HEY THE MAX ANG VELO IS: " + rigidbody.maxAngularVelocity);
+		//Debug.Log("HEY THE MAX ANG VELO IS: " + rigidbody.maxAngularVelocity);
 
 		if(Input.GetAxis("Smack") > 0){
 			smackable = true;
@@ -61,14 +61,14 @@ public class goodController : MonoBehaviour {
 		}
 
 
-		sideSpeed = Input.GetAxis("p1_Strafe") * movementSpeed;
+		//sideSpeed = Input.GetAxis("p1_Strafe") * movementSpeed;
 		//Debug.Log("ROTATING POSSIBLEEEEEEE");
 		//transform.Rotate(0, rotLeftRight, 0);
 		//Speed Math
-		speed.Set(sideSpeed, verticalVelocity, forwardSpeed);
-		speed = transform.rotation * speed;
+		//speed.Set(sideSpeed, verticalVelocity, forwardSpeed);
+		//speed = transform.rotation * speed;
 		//transform.Translate(speed * Time.deltaTime, 
-		speed = Vector3.forward;
+		//speed = Vector3.forward;
 		Vector3 tempMove = gameObject.transform.TransformDirection(Vector3.forward * forwardSpeed);
 		Vector3 tempRotate = gameObject.transform.TransformDirection(Vector3.up * rotLeftRight);
 		rigidbody.AddForce(tempMove);
