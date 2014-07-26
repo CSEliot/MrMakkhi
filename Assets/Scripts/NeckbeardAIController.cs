@@ -85,6 +85,7 @@ public class NeckbeardAIController : MonoBehaviour
     {
         if ( this.transform.position.Equals( this.moveTo ) && state == NeckbeardState.ACTIVE )
         {
+			this.transform.LookAt(moveFrom);
             temp.x = moveFrom.x;
             temp.y = moveFrom.y;
             temp.z = moveFrom.z;
