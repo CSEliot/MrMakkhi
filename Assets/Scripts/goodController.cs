@@ -35,10 +35,12 @@ public class goodController : MonoBehaviour {
 		//Speed Math
 		speed.Set(sideSpeed, verticalVelocity, forwardSpeed);
 		speed = transform.rotation * speed;
+		Vector3 tempMove = gameObject.transform.TransformDirection(speed * Time.deltaTime);
+		rigidbody.AddForce(tempMove*100);
 		characterController.Move(speed * Time.deltaTime);
 	}
 
-	void OnCollisionEnter(Collider collided) {
+	void OnCollisionEnter(Collision collided) {
 
 	}
 }
