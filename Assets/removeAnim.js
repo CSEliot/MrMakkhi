@@ -1,14 +1,16 @@
 ﻿#pragma strict
 
-var MainObj : GameObject;
 var Willremove : boolean;
 var aniMaster : Animator;
 var RagBones : GameObject[];
-
+var NeckBeard : GameObject;
 
 function Start(){
 
-	this.transform.parent = MainObj.transform;
+
+	var beardy : GameObject = Instantiate(NeckBeard, transform.position, transform.rotation);
+
+	this.transform.parent = beardy.transform;
 
 }
 
@@ -21,7 +23,7 @@ function RagTime () {
 	}
 	
 		aniMaster.enabled = false;
-		
+		this.gameObject.AddComponent.<Rigidbody>();
 
 
 	for(var boneObj : GameObject in RagBones){
