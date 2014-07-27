@@ -28,6 +28,8 @@ public class goodController : MonoBehaviour {
 	private Vector3 gravity;
 	public bool isPlayer1;
 	public bool isPC;
+	public int hand1;
+	public int hand2;
 	private string forwardString;
 	private string rotateString;
 	private string smackString; 
@@ -56,14 +58,19 @@ public class goodController : MonoBehaviour {
 		jumpSpeed = 3.0f;
 		movementSpeed = 9000f;
 		oldMovementSpeed = 9000f;
-		oldAngularVelocity = rigidbody.maxAngularVelocity-2;
+		oldAngularVelocity = rigidbody.maxAngularVelocity-1;
 		Debug.Log("Old Angular Velocity is: " + oldAngularVelocity);
 		speed = new Vector3(0f, 0f, 0f);
 		verticalVelocity = 0f;
-		hands = GameObject.FindGameObjectsWithTag("Hand");
+		if(isPlayer1){
+			chest = GameObject.FindGameObjectsWithTag("ChestP1");
+			hands = GameObject.FindGameObjectsWithTag("HandP1");
+		}else{
+			chest = GameObject.FindGameObjectsWithTag("ChestP2");
+			hands = GameObject.FindGameObjectsWithTag("HandP2");
+		}
 		cameras = GameObject.FindGameObjectsWithTag("MainCamera");
 		Debug.Log("NUM OF HANDS" + hands.Length);
-		chest = GameObject.FindGameObjectsWithTag("Chest");
 		shiftToggleChange = false;
 		smackable = false;
 		handHeight = 0f;
@@ -73,7 +80,6 @@ public class goodController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		//Debug.Log("HEY THE MAX ANG VELO IS: " + rigidbody.maxAngularVelocity);
 		if(!shiftToggleChange){
 			if(smackable){
@@ -94,7 +100,7 @@ public class goodController : MonoBehaviour {
 				rigidbody.maxAngularVelocity = maxVelo; 
 				rigidbody.velocity = Vector3.zero;
 				//rigidbody.angularVelocity.Set(0f, 10000f, 0f);
-				mouseSensitivity = 100000;
+				mouseSensitivity = 10000;
 				//cameras[0].GetComponent<SmoothFollow>().enabled = false;
 				movementSpeed = 0f;
 				handHeight = 9000f;
@@ -102,7 +108,7 @@ public class goodController : MonoBehaviour {
 				Debug.Log("SMACKING SPINNING! from PLAYER 1: " + isPlayer1);
 			}else{
 				rigidbody.constraints = ~RigidbodyConstraints.FreezePositionY & rigidbody.constraints;
-				mouseSensitivity = 50000;
+				mouseSensitivity = 500;
 				//cameras[1].GetComponent<SmoothFollow>().enabled = true;
 				rigidbody.maxAngularVelocity = oldAngularVelocity;
 				movementSpeed = 9000f;//oldMovementSpeed;
@@ -111,20 +117,11 @@ public class goodController : MonoBehaviour {
 				Debug.Log("NO MORE SPINNING from PLAYER 1: " + isPlayer1);
 			}
 		}
-		if(!isPlayer1){
-			awayVector0 = hands[0].transform.position - chest[1].transform.position;
-			awayVector1 = hands[1].transform.position - chest[1].transform.position;
-			if(smackable){
-				hands[0].rigidbody.AddForce((awayVector0*300)+ (Vector3.up*handHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.001f)));
-				hands[1].rigidbody.AddForce((awayVector1*300)+ (Vector3.up*handHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.001f)));
-			}
-		}else{
-			awayVector0 = hands[2].transform.position - chest[0].transform.position;
-			awayVector1 = hands[3].transform.position - chest[0].transform.position;
-			if(smackable){
-				hands[2].rigidbody.AddForce((awayVector0*300)+ (Vector3.up*handHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.001f)));
-				hands[3].rigidbody.AddForce((awayVector1*300)+ (Vector3.up*handHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.001f)));
-			}
+		if(smackable){
+			awayVector0 = hands[0].transform.position - chest[0].transform.position;
+			awayVector1 = hands[1].transform.position - chest[0].transform.position;
+			hands[hand1].rigidbody.AddForce((awayVector0*Mathf.Abs(rotLeftRight*0.00001f)) + (Vector3.up*handHeight*Time.deltaTime)*Mathf.Abs(rotLeftRight*0.00001f));
+			hands[hand2].rigidbody.AddForce((awayVector1*Mathf.Abs(rotLeftRight*0.00001f)) + (Vector3.up*handHeight*Time.deltaTime)*Mathf.Abs(rotLeftRight*0.00001f));
 		}
 
 
