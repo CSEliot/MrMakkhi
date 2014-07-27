@@ -17,12 +17,13 @@ public class goodController : MonoBehaviour {
 	private float rotLeftRight;
 	public Animator animator;
 	private bool smackable;
-	private GameObject[] biceps;
+	private GameObject[] hands;
 	private GameObject[] chest;
 	private GameObject[] cameras; 
-	private float bicepHeight;
+	private float handHeight;
 	private bool shiftToggleChange;
 	private float oldMovementSpeed;
+	private float oldAngularVelocity;
 	private float topSpeed;
 	private Vector3 gravity;
 	public bool isPlayer1;
@@ -55,15 +56,17 @@ public class goodController : MonoBehaviour {
 		jumpSpeed = 3.0f;
 		movementSpeed = 9000f;
 		oldMovementSpeed = 9000f;
+		oldAngularVelocity = rigidbody.maxAngularVelocity-2;
+		Debug.Log("Old Angular Velocity is: " + oldAngularVelocity);
 		speed = new Vector3(0f, 0f, 0f);
 		verticalVelocity = 0f;
-		biceps = GameObject.FindGameObjectsWithTag("Bicep");
+		hands = GameObject.FindGameObjectsWithTag("Hand");
 		cameras = GameObject.FindGameObjectsWithTag("MainCamera");
-		Debug.Log("NUM OF BICEPS" + biceps.Length);
+		Debug.Log("NUM OF HANDS" + hands.Length);
 		chest = GameObject.FindGameObjectsWithTag("Chest");
 		shiftToggleChange = false;
 		smackable = false;
-		bicepHeight = 0f;
+		handHeight = 0f;
 		topSpeed = 30f;
 		gravity = new Vector3(0.0f, -80f, 0.0f);
 	}
@@ -90,37 +93,37 @@ public class goodController : MonoBehaviour {
 				rigidbody.constraints = RigidbodyConstraints.FreezePositionY | rigidbody.constraints;
 				rigidbody.maxAngularVelocity = maxVelo; 
 				rigidbody.velocity = Vector3.zero;
-				rigidbody.angularVelocity.Set(0f, 10000f, 0f);
+				//rigidbody.angularVelocity.Set(0f, 10000f, 0f);
 				mouseSensitivity = 100000;
-				cameras[0].GetComponent<SmoothFollow>().enabled = false;
+				//cameras[0].GetComponent<SmoothFollow>().enabled = false;
 				movementSpeed = 0f;
-				bicepHeight = 9000f;
+				handHeight = 9000f;
 				shiftToggleChange = false;
 				Debug.Log("SMACKING SPINNING! from PLAYER 1: " + isPlayer1);
 			}else{
 				rigidbody.constraints = ~RigidbodyConstraints.FreezePositionY & rigidbody.constraints;
 				mouseSensitivity = 50000;
-				cameras[1].GetComponent<SmoothFollow>().enabled = true;
-				rigidbody.maxAngularVelocity = 7 ;
+				//cameras[1].GetComponent<SmoothFollow>().enabled = true;
+				rigidbody.maxAngularVelocity = oldAngularVelocity;
 				movementSpeed = 9000f;//oldMovementSpeed;
 				shiftToggleChange = false;
-				bicepHeight = 0f;
+				handHeight = 0f;
 				Debug.Log("NO MORE SPINNING from PLAYER 1: " + isPlayer1);
 			}
 		}
 		if(!isPlayer1){
-			awayVector0 = biceps[0].transform.position - chest[1].transform.position;
-			awayVector1 = biceps[1].transform.position - chest[1].transform.position;
+			awayVector0 = hands[0].transform.position - chest[1].transform.position;
+			awayVector1 = hands[1].transform.position - chest[1].transform.position;
 			if(smackable){
-				biceps[0].rigidbody.AddForce((awayVector0*300)+ (Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.0001f)));
-				biceps[1].rigidbody.AddForce((awayVector1*300)+ (Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.0001f)));
+				hands[0].rigidbody.AddForce((awayVector0*300)+ (Vector3.up*handHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.001f)));
+				hands[1].rigidbody.AddForce((awayVector1*300)+ (Vector3.up*handHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.001f)));
 			}
 		}else{
-			awayVector0 = biceps[2].transform.position - chest[0].transform.position;
-			awayVector1 = biceps[3].transform.position - chest[0].transform.position;
+			awayVector0 = hands[2].transform.position - chest[0].transform.position;
+			awayVector1 = hands[3].transform.position - chest[0].transform.position;
 			if(smackable){
-				biceps[2].rigidbody.AddForce((awayVector0*300)+ (Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.0001f)));
-				biceps[3].rigidbody.AddForce((awayVector1*300)+ (Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.0001f)));
+				hands[2].rigidbody.AddForce((awayVector0*300)+ (Vector3.up*handHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.001f)));
+				hands[3].rigidbody.AddForce((awayVector1*300)+ (Vector3.up*handHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.001f)));
 			}
 		}
 
