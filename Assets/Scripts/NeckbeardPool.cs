@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class NeckbeardPool : MonoBehaviour
 {
 
-    protected const int MAX_NECKBEARDS = 50;
+    protected const int MAX_NECKBEARDS = 19;
     protected const float SEND_DELAY = 5f;
 
     public Transform neckbeard;

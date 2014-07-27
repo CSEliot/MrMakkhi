@@ -97,7 +97,7 @@ public class NeckbeardAIController : MonoBehaviour
                     flies.Add( col.gameObject );
                 }
             }
-            else if ( col.tag.Equals( "Bicep" ) )
+            else if ( col.tag.Equals( "HandP1" ) )
             {
                 state = NeckbeardState.DEAD;
                 this.tag = "NeckbeardDead";

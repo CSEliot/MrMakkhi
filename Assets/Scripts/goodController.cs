@@ -80,11 +80,11 @@ public class goodController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		rigidbody.angularVelocity = Vector3.zero;
 		//Debug.Log("HEY THE MAX ANG VELO IS: " + rigidbody.maxAngularVelocity);
 		if(!shiftToggleChange){
 			if(smackable){
 				if(Input.GetAxis(smackString) == 0){
-					rigidbody.angularVelocity = Vector3.zero;
 					shiftToggleChange = true;
 					smackable = !smackable;
 				}
@@ -101,7 +101,7 @@ public class goodController : MonoBehaviour {
 				rigidbody.maxAngularVelocity = maxVelo; 
 				rigidbody.velocity = Vector3.zero;
 				//rigidbody.angularVelocity.Set(0f, 10000f, 0f);
-				mouseSensitivity = 10000;
+				mouseSensitivity = 700;
 				//cameras[0].GetComponent<SmoothFollow>().enabled = false;
 				movementSpeed = 0f;
 				handHeight = 1f;
