@@ -21,7 +21,7 @@ public class FlyAiController : MonoBehaviour
 
     public GameObject flyMaster;
     public Animator aniMaster;
-    private Transform target;
+    private Vector3 target;
 
     private Vector3 arcVector;
     private Vector3 startPosition;
@@ -42,6 +42,7 @@ public class FlyAiController : MonoBehaviour
     {
         startPosition = new Vector3( 0, START_Y, 0 );
         Reset();
+        GetNewTarget();
     }
 
     void Update()
@@ -65,11 +66,11 @@ public class FlyAiController : MonoBehaviour
             arcVector.y = Mathf.Lerp( arcVector.y, 0, Time.deltaTime * .4f );
             arcVector.z = Mathf.Lerp( arcVector.z, 0, Time.deltaTime * .4f );
 
-            distFromTarget = Mathf.Sqrt( ( target.position - this.transform.position ).sqrMagnitude );
+            distFromTarget = Mathf.Sqrt( ( target - this.transform.position ).sqrMagnitude );
 
             if ( distFromTarget <= DISTANCE )
             {
-                newTarget();
+                GetNewTarget();
             }
         }
         else if ( state == FlyState.DEAD )
@@ -85,7 +86,7 @@ public class FlyAiController : MonoBehaviour
     private void Reset()
     {
         state = FlyState.INACTIVE;
-        target = null;
+        target = Vector3.zero;
         rigidbody.position = startPosition;
         arcVector.x = 0;
         arcVector.y = 0;
@@ -123,16 +124,9 @@ public class FlyAiController : MonoBehaviour
     }
 
 
-    void newTarget()
+    void GetNewTarget()
     {
-
-        flyMaster.SendMessage( "newSpot", this.gameObject );
-    }
-
-    void flyHere( Transform newObject )
-    {
-
-        target = newObject;
+        target = flyMaster.GetComponent<FlySpots>().NewSpot();
     }
 
     void swatted()
@@ -148,6 +142,8 @@ public class FlyAiController : MonoBehaviour
         state = FlyState.FLYING;
         aniMaster.SetBool( "isStuck", false );
         aniMaster.SetBool( "isDead", false );
+
+        GetNewTarget();
 
         ReArc();
         gameObject.SetActive( true );
