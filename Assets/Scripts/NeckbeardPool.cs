@@ -16,6 +16,11 @@ public class NeckbeardPool : MonoBehaviour
 
     protected float dt;
 
+    public float minX;
+    public float maxX;
+    public float minZ;
+    public float maxZ;
+
     // Use this for initialization
     void Start()
     {
@@ -25,8 +30,10 @@ public class NeckbeardPool : MonoBehaviour
             Transform neckbeardObj = (Transform) Instantiate( neckbeard );
             neckbeardObj.name = "Neckbeard " + i;
             Transform neckbeardRagdollObj = (Transform) Instantiate( neckbeardRagdoll );
+            neckbeardRagdollObj.name = "Neckbeard Rag Doll";
             neckbeardRagdollObj.parent = neckbeardObj;
             NeckbeardAIController aiController = neckbeardObj.GetComponent<NeckbeardAIController>();
+            aiController.ragdoll = neckbeardRagdollObj;
             pool.Add( aiController );
         }
         dt = 0;
@@ -47,7 +54,11 @@ public class NeckbeardPool : MonoBehaviour
     {
         if ( pool[currentNode].state == NeckbeardAIController.NeckbeardState.INACTIVE )
         {
-            pool[currentNode].transform.position = this.transform.position;
+            pool[currentNode].transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+            float randomX, randomZ;
+            randomX = Random.Range( minX, maxX );
+            randomZ = Random.Range( minZ, maxZ );
+            pool[currentNode].moveTo = new Vector3( randomX, 0, randomZ );
             pool[currentNode].Send();
             dt = 0;
         }
