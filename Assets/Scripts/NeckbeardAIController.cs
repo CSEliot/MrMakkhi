@@ -22,11 +22,11 @@ public class NeckbeardAIController : MonoBehaviour
     }
 
     private const float INACTIVE_TIME = 10f;
-    private const float SPEED = 15f;
+    private const float SPEED = 70f;
 
     public BehaviorType type;
     public Vector3 moveTo;
-    public Vector3 moveFrom;
+    private Vector3 velocity;
     private Vector3 temp;
     public NeckbeardState state;
     private bool hasFlies;
@@ -53,12 +53,13 @@ public class NeckbeardAIController : MonoBehaviour
     {
         if ( state == NeckbeardState.MOVETO )
         {
-            float sqrMag = ( target.position - transform.position ).SqrMagnitude();
+            float sqrMag = ( moveTo - transform.position ).sqrMagnitude;
 
             if ( sqrMag > lastSqrMag )
             {
-                rigidbody.velocity = Vector3.zero;
-                state = Neckbeard.ACTIVE;
+                print( "DONE" );
+                velocity = Vector3.zero;
+                state = NeckbeardState.ACTIVE;
             }
 
             lastSqrMag = sqrMag;
@@ -70,6 +71,14 @@ public class NeckbeardAIController : MonoBehaviour
             {
                 Reset();
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if ( state == NeckbeardState.MOVETO || state == NeckbeardState.ACTIVE )
+        {
+            rigidbody.velocity = velocity;
         }
     }
 
@@ -85,7 +94,7 @@ public class NeckbeardAIController : MonoBehaviour
                     flies.Add( col.gameObject );
                 }
             }
-            else if ( col.tag.Equals( "Swatter" ) )
+            else if ( col.tag.Equals( "Bicep" ) )
             {
                 state = NeckbeardState.DEAD;
                 this.tag = "NeckbeardDead";
@@ -95,10 +104,11 @@ public class NeckbeardAIController : MonoBehaviour
 
     public void Reset()
     {
-        state = State.INACTIVE;
+        state = NeckbeardState.INACTIVE;
         gameObject.SetActive( false );
         deadTime = 0;
         lastSqrMag = Mathf.Infinity;
+        this.tag = "NeckbeardAlive";
     }
 
     public void Send()
@@ -118,7 +128,9 @@ public class NeckbeardAIController : MonoBehaviour
         randomZ = Random.Range( -50f, 50f );
         moveTo = new Vector3( randomX, 0, randomZ );
 
-        rigidbody.velocity = ( transform.position - moveTo ).Normalize() * SPEED;
+        velocity = transform.position - moveTo;
+        velocity.Normalize();
+        velocity *= SPEED;
 
         state = NeckbeardState.MOVETO;
 

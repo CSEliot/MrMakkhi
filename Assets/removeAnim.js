@@ -7,11 +7,6 @@ var NeckBeard : GameObject;
 
 function Start(){
 
-
-	var beardy : GameObject = Instantiate(NeckBeard, transform.position, transform.rotation);
-
-	this.transform.parent = beardy.transform;
-
 }
 
 function RagTime () {

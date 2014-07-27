@@ -5,10 +5,11 @@ using System.Collections.Generic;
 public class NeckbeardPool : MonoBehaviour
 {
 
-    protected const int MAX_NECKBEARDS = 100;
-    protected const float SEND_DELAY = 10f;
+    protected const int MAX_NECKBEARDS = 50;
+    protected const float SEND_DELAY = 5f;
 
     public Transform neckbeard;
+    public Transform neckbeardRagdoll;
 
     protected List<NeckbeardAIController> pool;
     protected int currentNode;
@@ -23,6 +24,8 @@ public class NeckbeardPool : MonoBehaviour
         {
             Transform neckbeardObj = (Transform) Instantiate( neckbeard );
             neckbeardObj.name = "Neckbeard " + i;
+            Transform neckbeardRagdollObj = (Transform) Instantiate( neckbeardRagdoll );
+            neckbeardRagdollObj.parent = neckbeardObj;
             NeckbeardAIController aiController = neckbeardObj.GetComponent<NeckbeardAIController>();
             pool.Add( aiController );
         }
@@ -42,7 +45,7 @@ public class NeckbeardPool : MonoBehaviour
 
     protected void SendEnemy()
     {
-        if ( pool[currentNode].state == NeckbeardAIController.NeckbeardState.DEAD )
+        if ( pool[currentNode].state == NeckbeardAIController.NeckbeardState.INACTIVE )
         {
             pool[currentNode].transform.position = this.transform.position;
             pool[currentNode].Send();
