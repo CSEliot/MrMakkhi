@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff776d88786d2463ab4e1a753e011d9d
+guid: 37f9f2eed3e1347f08d92e4dabcfa0d6
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -19,7 +19,7 @@ ModelImporter:
     100026: Forearm_R
     100028: Groin_L
     100030: Groin_R
-    100032: Group51648
+    100032: Group11056
     100034: Hand_L
     100036: Hand_R
     100038: HandControl_L
@@ -31,10 +31,11 @@ ModelImporter:
     100050: Neck
     100052: NeckBeard_Bones
     100054: //RootNode
-    100056: Shoulder_L
-    100058: Shoulder_R
-    100060: Thigh_L
-    100062: Thigh_R
+    100056: NeckMan
+    100058: Shoulder_L
+    100060: Shoulder_R
+    100062: Thigh_L
+    100064: Thigh_R
     400000: Bicep_L
     400002: Bicep_R
     400004: Calf_L
@@ -51,7 +52,7 @@ ModelImporter:
     400026: Forearm_R
     400028: Groin_L
     400030: Groin_R
-    400032: Group51648
+    400032: Group11056
     400034: Hand_L
     400036: Hand_R
     400038: HandControl_L
@@ -63,15 +64,20 @@ ModelImporter:
     400050: Neck
     400052: NeckBeard_Bones
     400054: //RootNode
-    400056: Shoulder_L
-    400058: Shoulder_R
-    400060: Thigh_L
-    400062: Thigh_R
-    4300000: Group51648
+    400056: NeckMan
+    400058: Shoulder_L
+    400060: Shoulder_R
+    400062: Thigh_L
+    400064: Thigh_R
+    4300000: Group11056
+    4300002: NeckMan
     7400000: Default Take
-    7400002: Neckbeard_Squat
+    7400002: NeckBeard_Idle
+    7400004: Neckbeard_Squat
+    7400006: NeckBeard_Walk
     9500000: //RootNode
-    13700000: Group51648
+    13700000: Group11056
+    13700002: NeckMan
   materials:
     importMaterials: 1
     materialName: 0
