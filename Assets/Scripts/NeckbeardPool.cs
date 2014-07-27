@@ -44,6 +44,7 @@ public class NeckbeardPool : MonoBehaviour
     {
         if ( pool[currentNode].state == NeckbeardAIController.NeckbeardState.DEAD )
         {
+            pool[currentNode].transform.position = this.transform.position;
             pool[currentNode].Send();
             dt = 0;
         }
