@@ -32,6 +32,15 @@ function RagTime () {
 		
 }
 
+function Standing () {
+	aniMaster.SetBool("IsStill", true);
+
+}
+
+function Running() {
+	aniMaster.SetBool("IsStill", false);
+}
+
 function Update(){
 
 	if(Willremove == true){

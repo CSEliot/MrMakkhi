@@ -33,6 +33,7 @@ public class NeckbeardPool : MonoBehaviour
             neckbeardRagdollObj.name = "Neckbeard Rag Doll";
             neckbeardRagdollObj.parent = neckbeardObj;
             NeckbeardAIController aiController = neckbeardObj.GetComponent<NeckbeardAIController>();
+            aiController.ragdoll = neckbeardRagdollObj;
             pool.Add( aiController );
         }
         dt = 0;

@@ -26,7 +26,7 @@ public class FlyAiController : MonoBehaviour
     private Vector3 arcVector;
     private Vector3 startPosition;
     private Quaternion rotateQuaternion;
-    
+
     private float randomInterval;
     private float deltaTime;
     private float distFromTarget;
@@ -76,7 +76,7 @@ public class FlyAiController : MonoBehaviour
         else if ( state == FlyState.DEAD )
         {
             deltaTime += Time.deltaTime;
-            if (deltaTime > DISAPPEAR_TIME)
+            if ( deltaTime > DISAPPEAR_TIME )
             {
                 Reset();
             }
@@ -108,7 +108,7 @@ public class FlyAiController : MonoBehaviour
     {
         if ( state == FlyState.FLYING )
         {
-            if ( col.tag == "Finish" )
+            if ( col.tag.Equals( "NeckbeardAlive" ) )
             {
                 state = FlyState.ATTACHED;
 

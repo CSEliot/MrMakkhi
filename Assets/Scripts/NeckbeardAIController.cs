@@ -36,6 +36,7 @@ public class NeckbeardAIController : MonoBehaviour
     private float lastDistance;
 
     public Transform ragdoll;
+    private Animator anim;
 
     public int NumberOfFlies
     {
@@ -61,6 +62,7 @@ public class NeckbeardAIController : MonoBehaviour
             {
                 velocity = Vector3.zero;
                 state = NeckbeardState.ACTIVE;
+                ragdoll.SendMessage( "Standing" );
             }
 
             lastDistance = distance;
@@ -110,6 +112,7 @@ public class NeckbeardAIController : MonoBehaviour
         gameObject.SetActive( false );
         deadTime = 0;
         lastDistance = Mathf.Infinity;
+
         this.tag = "NeckbeardAlive";
     }
 
@@ -118,12 +121,16 @@ public class NeckbeardAIController : MonoBehaviour
         type = NeckbeardAIController.BehaviorType.PACING;
 
         transform.LookAt( moveTo );
-        velocity = transform.forward;
+        velocity.x = transform.forward.x;
+        velocity.z = transform.forward.z;
         velocity.Normalize();
         velocity *= SPEED;
+        velocity.y = rigidbody.velocity.y;
 
         state = NeckbeardState.MOVETO;
 
         gameObject.SetActive( true );
+        ragdoll.SendMessage( "Running" );
+
     }
 }

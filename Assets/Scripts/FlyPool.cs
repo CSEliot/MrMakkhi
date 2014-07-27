@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class FlyPool : MonoBehaviour
 {
 
-    protected const int MAX_FLIES = 100;
-    protected const float SEND_DELAY = 2f;
+    public int MAX_FLIES;
+    protected const float SEND_DELAY = .01f;
 
     public Transform fly;
 

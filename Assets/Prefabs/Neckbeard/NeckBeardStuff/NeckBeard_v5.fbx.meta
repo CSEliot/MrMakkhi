@@ -93,7 +93,375 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Group11056
+        weight: 1
+      - path: NeckBeard_Bones
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Elbow_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Elbow_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L/Calf_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L/Calf_L/Foot_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R/Calf_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R/Calf_R/Foot_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Knee_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Knee_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Neck
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Neck/Head
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L/Forearm_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L/Forearm_L/Hand_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R/Forearm_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R/Forearm_R/Hand_R
+        weight: 1
+      - path: NeckBeard_Bones/FootControl_L
+        weight: 1
+      - path: NeckBeard_Bones/FootControl_R
+        weight: 1
+      - path: NeckBeard_Bones/HandControl_L
+        weight: 1
+      - path: NeckBeard_Bones/HandControl_R
+        weight: 1
+      - path: NeckMan
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: NeckBeard_Idle
+      takeName: NeckBeard_Idle
+      firstFrame: 0
+      lastFrame: 226
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Group11056
+        weight: 1
+      - path: NeckBeard_Bones
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Elbow_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Elbow_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L/Calf_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L/Calf_L/Foot_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R/Calf_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R/Calf_R/Foot_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Knee_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Knee_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Neck
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Neck/Head
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L/Forearm_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L/Forearm_L/Hand_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R/Forearm_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R/Forearm_R/Hand_R
+        weight: 1
+      - path: NeckBeard_Bones/FootControl_L
+        weight: 1
+      - path: NeckBeard_Bones/FootControl_R
+        weight: 1
+      - path: NeckBeard_Bones/HandControl_L
+        weight: 1
+      - path: NeckBeard_Bones/HandControl_R
+        weight: 1
+      - path: NeckMan
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Neckbeard_Squat
+      takeName: Neckbeard_Squat
+      firstFrame: -1
+      lastFrame: 104
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Group11056
+        weight: 1
+      - path: NeckBeard_Bones
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Elbow_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Elbow_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L/Calf_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L/Calf_L/Foot_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R/Calf_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R/Calf_R/Foot_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Knee_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Knee_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Neck
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Neck/Head
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L/Forearm_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L/Forearm_L/Hand_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R/Forearm_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R/Forearm_R/Hand_R
+        weight: 1
+      - path: NeckBeard_Bones/FootControl_L
+        weight: 1
+      - path: NeckBeard_Bones/FootControl_R
+        weight: 1
+      - path: NeckBeard_Bones/HandControl_L
+        weight: 1
+      - path: NeckBeard_Bones/HandControl_R
+        weight: 1
+      - path: NeckMan
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: NeckBeard_Walk
+      takeName: NeckBeard_Walk
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Group11056
+        weight: 1
+      - path: NeckBeard_Bones
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Elbow_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Elbow_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L/Calf_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_L/Thigh_L/Calf_L/Foot_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R/Calf_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Groin_R/Thigh_R/Calf_R/Foot_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Knee_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Knee_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Neck
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Neck/Head
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L/Forearm_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_L/Bicep_L/Forearm_L/Hand_L
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R/Forearm_R
+        weight: 1
+      - path: NeckBeard_Bones/CenterBone/Mid/Chest/Shoulder_R/Bicep_R/Forearm_R/Hand_R
+        weight: 1
+      - path: NeckBeard_Bones/FootControl_L
+        weight: 1
+      - path: NeckBeard_Bones/FootControl_R
+        weight: 1
+      - path: NeckBeard_Bones/HandControl_L
+        weight: 1
+      - path: NeckBeard_Bones/HandControl_R
+        weight: 1
+      - path: NeckMan
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
