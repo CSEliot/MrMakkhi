@@ -43,7 +43,6 @@ public class TweenComponent : MonoBehaviour
 			switch (movementType) {
 			case MovementType.CONSTANT:
 				delta.x = this.rigidbody.position.x + velocity.x * Time.deltaTime;
-				delta.y = this.rigidbody.position.y + velocity.y * Time.deltaTime;
 				delta.z = this.rigidbody.position.z + velocity.z * Time.deltaTime;
 				
 				if (CheckFinalThreshold (delta))
@@ -89,14 +88,9 @@ public class TweenComponent : MonoBehaviour
 	protected bool CheckFinalThreshold (Vector3 delta)
 	{
 		if ((this.rigidbody.position.x - moveTo.x >= 0 && delta.x - moveTo.x <= 0) ||
-			(this.rigidbody.position.x - moveTo.x <= 0 && delta.x - moveTo.x >= 0)) {
-			cachedPosition.x = moveTo.x;
-		}
-
-        if ( ( this.rigidbody.position.y - moveTo.y >= 0 && delta.y - moveTo.y <= 0 ) ||
-            ( this.rigidbody.position.y - moveTo.y <= 0 && delta.y - moveTo.y >= 0 ) )
+			(this.rigidbody.position.x - moveTo.x <= 0 && delta.x - moveTo.x >= 0)) 
         {
-			cachedPosition.y = moveTo.y;
+			cachedPosition.x = moveTo.x;
 		}
 
         if ( ( this.rigidbody.position.z - moveTo.z >= 0 && delta.z - moveTo.z <= 0 ) ||
@@ -105,7 +99,7 @@ public class TweenComponent : MonoBehaviour
 			cachedPosition.z = moveTo.z;
 		}
 		
-		if ((cachedPosition).Equals (moveTo)) {
+		if (cachedPosition.x == moveTo.x && cachedPosition.z == moveTo.z) {
 			rigidbody.position = cachedPosition;
 			state = State.IDLE;
 			return true;

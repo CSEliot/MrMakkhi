@@ -14,25 +14,26 @@ public class NeckbeardAIController : MonoBehaviour
 
     public enum NeckbeardState
     {
-        IDLE,
-        FLYING,
+        INACTIVE,
+        MOVETO,
         ACTIVE,
         DEAD,
         PAUSED
     }
 
     private const float INACTIVE_TIME = 10f;
+    private const float SPEED = 70f;
 
     public BehaviorType type;
     public Vector3 moveTo;
-    public Vector3 moveFrom;
+    private Vector3 velocity;
     private Vector3 temp;
-    private TweenComponent tweener;
     public NeckbeardState state;
     private bool hasFlies;
     private int numFlies;
     private List<GameObject> flies;
     private float deadTime;
+    private float lastSqrMag;
 
     public int NumberOfFlies
     {
@@ -42,105 +43,97 @@ public class NeckbeardAIController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        tweener = this.transform.GetComponent<TweenComponent>();
-        state = NeckbeardState.IDLE;
         flies = new List<GameObject>( 100 );
-        deadTime = 0;
+
+        Reset();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ( state != NeckbeardState.FLYING )
+        if ( state == NeckbeardState.MOVETO )
         {
-            switch ( type )
+            float sqrMag = ( moveTo - transform.position ).sqrMagnitude;
+
+            if ( sqrMag > lastSqrMag )
             {
-                case BehaviorType.STANDING:
-                    StandingBehavior();
-                    break;
-                case BehaviorType.PACING:
-                    PacingBehavior();
-                    break;
-                case BehaviorType.AVOIDING:
-                    AvoidingBehavior();
-                    break;
+                print( "DONE" );
+                velocity = Vector3.zero;
+                state = NeckbeardState.ACTIVE;
             }
+
+            lastSqrMag = sqrMag;
         }
-        else if ( state == NeckbeardState.FLYING )
+        else if ( state == NeckbeardState.DEAD )
         {
             deadTime += Time.deltaTime;
-            if (deadTime > INACTIVE_TIME)
+            if ( deadTime > INACTIVE_TIME )
             {
-                state = NeckbeardState.DEAD;
+                Reset();
             }
         }
     }
 
-    private void StandingBehavior()
+    void FixedUpdate()
     {
-
-    }
-
-    private void PacingBehavior()
-    {
-        if ( this.rigidbody.position.Equals( this.moveTo ) && state == NeckbeardState.ACTIVE )
+        if ( state == NeckbeardState.MOVETO || state == NeckbeardState.ACTIVE )
         {
-			this.transform.LookAt(moveFrom);
-            temp.x = moveFrom.x;
-            temp.y = moveFrom.y;
-            temp.z = moveFrom.z;
-            moveFrom.x = moveTo.x;
-            moveFrom.y = moveTo.y;
-            moveFrom.z = moveTo.z;
-            moveTo.x = temp.x;
-            moveTo.y = temp.y;
-            moveTo.z = temp.z;
-
-            state = NeckbeardState.IDLE;
+            rigidbody.velocity = velocity;
         }
-        else if ( state == NeckbeardState.IDLE )
-        {
-            tweener.StartMovement( moveTo, 10f );
-            state = NeckbeardState.ACTIVE;
-        }
-    }
-
-    private void AvoidingBehavior()
-    {
-
     }
 
     void OnTriggerEnter( Collider col )
     {
-        if ( col.tag.Equals( "Fly" ) )
+        if ( state != NeckbeardState.INACTIVE && state != NeckbeardState.DEAD )
         {
-            hasFlies = true;
-            if ( !flies.Contains( col.gameObject ) )
+            if ( col.tag.Equals( "Fly" ) )
             {
-                flies.Add( col.gameObject );
+                hasFlies = true;
+                if ( !flies.Contains( col.gameObject ) )
+                {
+                    flies.Add( col.gameObject );
+                }
+            }
+            else if ( col.tag.Equals( "Bicep" ) )
+            {
+                state = NeckbeardState.DEAD;
+                this.tag = "NeckbeardDead";
             }
         }
-        else if ( col.tag.Equals( "Swatter" ) )
-        {
-            state = NeckbeardState.FLYING;
-            this.tag = "NeckbeardDead";
-        }
+    }
+
+    public void Reset()
+    {
+        state = NeckbeardState.INACTIVE;
+        gameObject.SetActive( false );
+        deadTime = 0;
+        lastSqrMag = Mathf.Infinity;
+        this.tag = "NeckbeardAlive";
     }
 
     public void Send()
     {
         type = NeckbeardAIController.BehaviorType.PACING;
 
+        //float randomX, randomZ;
+        //randomX = Random.Range( -50f, 50f );
+        //randomZ = Random.Range( -50f, 50f );
+        //moveFrom = new Vector3( randomX, 0, randomZ );
+        //randomX = Random.Range( -50f, 50f );
+        //randomZ = Random.Range( -50f, 50f );
+        //moveTo = new Vector3( randomX, 0, randomZ );
+
         float randomX, randomZ;
-        randomX = Random.Range( -50f, 50f );
-        randomZ = Random.Range( -50f, 50f );
-        moveFrom = new Vector3( randomX, 0, randomZ );
         randomX = Random.Range( -50f, 50f );
         randomZ = Random.Range( -50f, 50f );
         moveTo = new Vector3( randomX, 0, randomZ );
 
-        state = NeckbeardState.ACTIVE;
-        
+        velocity = transform.position - moveTo;
+        velocity.Normalize();
+        velocity *= SPEED;
+
+        state = NeckbeardState.MOVETO;
+
         gameObject.SetActive( true );
     }
 }
