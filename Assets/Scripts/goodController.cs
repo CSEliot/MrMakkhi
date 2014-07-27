@@ -84,6 +84,7 @@ public class goodController : MonoBehaviour {
 		if(!shiftToggleChange){
 			if(smackable){
 				if(Input.GetAxis(smackString) == 0){
+					rigidbody.angularVelocity = Vector3.zero;
 					shiftToggleChange = true;
 					smackable = !smackable;
 				}
@@ -103,7 +104,7 @@ public class goodController : MonoBehaviour {
 				mouseSensitivity = 10000;
 				//cameras[0].GetComponent<SmoothFollow>().enabled = false;
 				movementSpeed = 0f;
-				handHeight = 9000f;
+				handHeight = 1f;
 				shiftToggleChange = false;
 				Debug.Log("SMACKING SPINNING! from PLAYER 1: " + isPlayer1);
 			}else{
@@ -120,8 +121,8 @@ public class goodController : MonoBehaviour {
 		if(smackable){
 			awayVector0 = hands[0].transform.position - chest[0].transform.position;
 			awayVector1 = hands[1].transform.position - chest[0].transform.position;
-			hands[hand1].rigidbody.AddForce((awayVector0*Mathf.Abs(rotLeftRight*0.00001f)) + (Vector3.up*handHeight*Time.deltaTime)*Mathf.Abs(rotLeftRight*0.00001f));
-			hands[hand2].rigidbody.AddForce((awayVector1*Mathf.Abs(rotLeftRight*0.00001f)) + (Vector3.up*handHeight*Time.deltaTime)*Mathf.Abs(rotLeftRight*0.00001f));
+			hands[0].rigidbody.AddForce(((awayVector0) + (Vector3.up*handHeight*Time.deltaTime))*forcePush);
+			hands[1].rigidbody.AddForce(((awayVector1) + (Vector3.up*handHeight*Time.deltaTime))*forcePush);
 		}
 
 
@@ -152,7 +153,7 @@ public class goodController : MonoBehaviour {
 		Vector3 tempMove = gameObject.transform.TransformDirection(Vector3.forward * forwardSpeed * acceleration);
 		Vector3 tempRotate = gameObject.transform.TransformDirection(Vector3.up * rotLeftRight);
 		rigidbody.AddForce(tempMove);
-		rigidbody.AddForce(gravity);
+		//rigidbody.AddForce(gravity);
 		rigidbody.AddTorque(tempRotate);
 
 
