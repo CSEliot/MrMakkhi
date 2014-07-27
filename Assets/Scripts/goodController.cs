@@ -26,6 +26,7 @@ public class goodController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Physics.gravity = new Vector3(0.0f, -50f, 0.0f);
 		Screen.lockCursor = true;
 		jumpSpeed = 3.0f;
 		movementSpeed = 9000f;
