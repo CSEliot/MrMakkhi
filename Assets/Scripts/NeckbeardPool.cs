@@ -2,15 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class FlyPool : MonoBehaviour
+public class NeckbeardPool : MonoBehaviour
 {
 
-    protected const int MAX_FLIES = 100;
-    protected const float SEND_DELAY = 2f;
+    protected const int MAX_NECKBEARDS = 100;
+    protected const float SEND_DELAY = 10f;
 
-    public Transform fly;
+    public Transform neckbeard;
 
-    protected List<FlyAiController> pool;
+    protected List<NeckbeardAIController> pool;
     protected int currentNode;
 
     protected float dt;
@@ -18,13 +18,12 @@ public class FlyPool : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        pool = new List<FlyAiController>();
-        for ( int i = 0; i < MAX_FLIES; i++ )
+        pool = new List<NeckbeardAIController>();
+        for ( int i = 0; i < MAX_NECKBEARDS; i++ )
         {
-            Transform flyObj = (Transform) Instantiate( fly );
-            flyObj.name = "Fly " + i;
-            FlyAiController aiController = flyObj.GetComponent<FlyAiController>();
-            aiController.flyMaster = GameObject.Find( "TargetMaster" );
+            Transform neckbeardObj = (Transform) Instantiate( neckbeard );
+            neckbeardObj.name = "Neckbeard " + i;
+            NeckbeardAIController aiController = neckbeardObj.GetComponent<NeckbeardAIController>();
             pool.Add( aiController );
         }
         dt = 0;
@@ -43,13 +42,13 @@ public class FlyPool : MonoBehaviour
 
     protected void SendEnemy()
     {
-        if ( pool[currentNode].State == FlyAiController.FlyState.INACTIVE )
+        if ( pool[currentNode].state == NeckbeardAIController.NeckbeardState.DEAD )
         {
             pool[currentNode].Send();
             dt = 0;
         }
         currentNode++;
-        if ( currentNode >= MAX_FLIES )
+        if ( currentNode >= MAX_NECKBEARDS )
         {
             currentNode = 0;
         }
