@@ -18,6 +18,7 @@ public class goodController : MonoBehaviour {
 	public Animator animator;
 	private bool smackable;
 	private GameObject[] biceps;
+	private GameObject chest;
 	private float bicepHeight;
 	private bool shiftToggleChange;
 	private float oldMovementSpeed;
@@ -32,10 +33,12 @@ public class goodController : MonoBehaviour {
 		speed = new Vector3(0f, 0f, 0f);
 		verticalVelocity = 0f;
 		biceps = GameObject.FindGameObjectsWithTag("Bicep");
+		chest = GameObject.FindGameObjectWithTag("Chest");
 		shiftToggleChange = false;
 		smackable = false;
-		bicepHeight = 9000f;
+		bicepHeight = 0f;
 		topSpeed = 30f;
+
 	}
 	
 	// Update is called once per frame
@@ -63,7 +66,7 @@ public class goodController : MonoBehaviour {
 				mouseSensitivity = 100000;
 				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothFollow>().enabled = false;
 				movementSpeed = 0f;
-				bicepHeight = 6000f;
+				bicepHeight = 9000f;
 				shiftToggleChange = false;
 				Debug.Log("SMACKING SPINNING!");
 			}else{
@@ -76,8 +79,14 @@ public class goodController : MonoBehaviour {
 				Debug.Log("NO MORE SPINNING");
 			}
 		}
-		biceps[0].rigidbody.AddForce(Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.0000001f));
-		biceps[1].rigidbody.AddForce(Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.0000001f));
+
+		Vector3 awayVector0 = biceps[0].transform.position - chest.transform.position;
+		Vector3 awayVector1 = biceps[1].transform.position - chest.transform.position;
+
+		if(smackable){
+			biceps[0].rigidbody.AddForce((awayVector0*300)+ (Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.00001f)));
+			biceps[1].rigidbody.AddForce((awayVector1*300)+ (Vector3.up*bicepHeight*Time.deltaTime*Mathf.Abs(rotLeftRight*0.00001f)));
+		}
 
 		rotLeftRight = Input.GetAxis("p1_Mouse X") * mouseSensitivity;
 		forwardSpeed = Input.GetAxis("p1_Forward") * movementSpeed;
@@ -90,15 +99,6 @@ public class goodController : MonoBehaviour {
 			animator.SetBool("MoveBackward", false);
 		}
 
-
-		//sideSpeed = Input.GetAxis("p1_Strafe") * movementSpeed;
-		//Debug.Log("ROTATING POSSIBLEEEEEEE");
-		//transform.Rotate(0, rotLeftRight, 0);
-		//Speed Math
-		//speed.Set(sideSpeed, verticalVelocity, forwardSpeed);
-		//speed = transform.rotation * speed;
-		//transform.Translate(speed * Time.deltaTime, 
-		//speed = Vector3.forward;
 		Vector3 tempBackVector = new Vector3();
 		if(rigidbody.velocity.magnitude > topSpeed*0.9f && rigidbody.velocity.magnitude < topSpeed*0.92f){
 			tempBackVector = rigidbody.velocity;
@@ -107,10 +107,9 @@ public class goodController : MonoBehaviour {
 			rigidbody.velocity -= (rigidbody.velocity - tempBackVector);
 		}
 
-
 		Vector3 tempMove = gameObject.transform.TransformDirection(Vector3.forward * forwardSpeed * acceleration);
 		Vector3 tempRotate = gameObject.transform.TransformDirection(Vector3.up * rotLeftRight);
-
+		
 
 		rigidbody.AddForce(tempMove);
 		rigidbody.AddTorque(tempRotate);
