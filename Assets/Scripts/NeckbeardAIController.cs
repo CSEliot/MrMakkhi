@@ -21,8 +21,8 @@ public class NeckbeardAIController : MonoBehaviour
         PAUSED
     }
 
-    private const float INACTIVE_TIME = 10f;
-    private const float SPEED = 70f;
+    private const float INACTIVE_TIME = 3f;
+    private const float SPEED = 80f;
 
     public BehaviorType type;
     public Vector3 moveTo;
@@ -33,7 +33,9 @@ public class NeckbeardAIController : MonoBehaviour
     private int numFlies;
     private List<GameObject> flies;
     private float deadTime;
-    private float lastSqrMag;
+    private float lastDistance;
+
+    public Transform ragdoll;
 
     public int NumberOfFlies
     {
@@ -53,16 +55,15 @@ public class NeckbeardAIController : MonoBehaviour
     {
         if ( state == NeckbeardState.MOVETO )
         {
-            float sqrMag = ( moveTo - transform.position ).sqrMagnitude;
+            float distance = Vector3.Distance( transform.position, moveTo );
 
-            if ( sqrMag > lastSqrMag )
+            if ( distance > lastDistance )
             {
-                print( "DONE" );
                 velocity = Vector3.zero;
                 state = NeckbeardState.ACTIVE;
             }
 
-            lastSqrMag = sqrMag;
+            lastDistance = distance;
         }
         else if ( state == NeckbeardState.DEAD )
         {
@@ -98,6 +99,7 @@ public class NeckbeardAIController : MonoBehaviour
             {
                 state = NeckbeardState.DEAD;
                 this.tag = "NeckbeardDead";
+                ragdoll.gameObject.SendMessage( "RagTime" );
             }
         }
     }
@@ -107,7 +109,7 @@ public class NeckbeardAIController : MonoBehaviour
         state = NeckbeardState.INACTIVE;
         gameObject.SetActive( false );
         deadTime = 0;
-        lastSqrMag = Mathf.Infinity;
+        lastDistance = Mathf.Infinity;
         this.tag = "NeckbeardAlive";
     }
 
@@ -115,20 +117,8 @@ public class NeckbeardAIController : MonoBehaviour
     {
         type = NeckbeardAIController.BehaviorType.PACING;
 
-        //float randomX, randomZ;
-        //randomX = Random.Range( -50f, 50f );
-        //randomZ = Random.Range( -50f, 50f );
-        //moveFrom = new Vector3( randomX, 0, randomZ );
-        //randomX = Random.Range( -50f, 50f );
-        //randomZ = Random.Range( -50f, 50f );
-        //moveTo = new Vector3( randomX, 0, randomZ );
-
-        float randomX, randomZ;
-        randomX = Random.Range( -50f, 50f );
-        randomZ = Random.Range( -50f, 50f );
-        moveTo = new Vector3( randomX, 0, randomZ );
-
-        velocity = transform.position - moveTo;
+        transform.LookAt( moveTo );
+        velocity = transform.forward;
         velocity.Normalize();
         velocity *= SPEED;
 

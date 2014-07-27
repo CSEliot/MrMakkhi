@@ -21,6 +21,7 @@ function Slapped(){
 	
 	animBlock.transform.parent = myParent;
 	this.transform.parent = animBlock.transform;
+	this.collider.enabled = false;
 	
 	if(isCharJoint == true){
 	var jointScr = animBlock.GetComponent.<CharacterJoint>();
