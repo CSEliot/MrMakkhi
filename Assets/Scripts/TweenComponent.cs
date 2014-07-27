@@ -42,14 +42,14 @@ public class TweenComponent : MonoBehaviour
 		if (state == State.ACTIVE) {
 			switch (movementType) {
 			case MovementType.CONSTANT:
-				delta.x = this.transform.position.x + velocity.x * Time.deltaTime;
-				delta.y = this.transform.position.y + velocity.y * Time.deltaTime;
-				delta.z = this.transform.position.z + velocity.z * Time.deltaTime;
+				delta.x = this.rigidbody.position.x + velocity.x * Time.deltaTime;
+				delta.y = this.rigidbody.position.y + velocity.y * Time.deltaTime;
+				delta.z = this.rigidbody.position.z + velocity.z * Time.deltaTime;
 				
 				if (CheckFinalThreshold (delta))
 					return;
 				else {
-					this.transform.position = delta;
+					this.rigidbody.velocity = velocity;
 					break;
 				}
 			case MovementType.SMOOTH:
@@ -88,23 +88,25 @@ public class TweenComponent : MonoBehaviour
 	
 	protected bool CheckFinalThreshold (Vector3 delta)
 	{
-		if ((this.transform.position.x - moveTo.x >= 0 && delta.x - moveTo.x <= 0) ||
-			(this.transform.position.x - moveTo.x <= 0 && delta.x - moveTo.x >= 0)) {
+		if ((this.rigidbody.position.x - moveTo.x >= 0 && delta.x - moveTo.x <= 0) ||
+			(this.rigidbody.position.x - moveTo.x <= 0 && delta.x - moveTo.x >= 0)) {
 			cachedPosition.x = moveTo.x;
 		}
-		
-		if ((this.transform.position.y - moveTo.y >= 0 && delta.y - moveTo.y <= 0) ||
-			(this.transform.position.y - moveTo.y <= 0 && delta.y - moveTo.y >= 0)) {
+
+        if ( ( this.rigidbody.position.y - moveTo.y >= 0 && delta.y - moveTo.y <= 0 ) ||
+            ( this.rigidbody.position.y - moveTo.y <= 0 && delta.y - moveTo.y >= 0 ) )
+        {
 			cachedPosition.y = moveTo.y;
 		}
-		
-		if ((this.transform.position.z - moveTo.z >= 0 && delta.z - moveTo.z <= 0) ||
-			(this.transform.position.z - moveTo.z <= 0 && delta.z - moveTo.z >= 0)) {
+
+        if ( ( this.rigidbody.position.z - moveTo.z >= 0 && delta.z - moveTo.z <= 0 ) ||
+            ( this.rigidbody.position.z - moveTo.z <= 0 && delta.z - moveTo.z >= 0 ) )
+        {
 			cachedPosition.z = moveTo.z;
 		}
 		
 		if ((cachedPosition).Equals (moveTo)) {
-			transform.position = cachedPosition;
+			rigidbody.position = cachedPosition;
 			state = State.IDLE;
 			return true;
 		}

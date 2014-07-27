@@ -83,7 +83,7 @@ public class NeckbeardAIController : MonoBehaviour
 
     private void PacingBehavior()
     {
-        if ( this.transform.position.Equals( this.moveTo ) && state == NeckbeardState.ACTIVE )
+        if ( this.rigidbody.position.Equals( this.moveTo ) && state == NeckbeardState.ACTIVE )
         {
 			this.transform.LookAt(moveFrom);
             temp.x = moveFrom.x;
@@ -125,5 +125,22 @@ public class NeckbeardAIController : MonoBehaviour
             state = NeckbeardState.FLYING;
             this.tag = "NeckbeardDead";
         }
+    }
+
+    public void Send()
+    {
+        type = NeckbeardAIController.BehaviorType.PACING;
+
+        float randomX, randomZ;
+        randomX = Random.Range( -50f, 50f );
+        randomZ = Random.Range( -50f, 50f );
+        moveFrom = new Vector3( randomX, 0, randomZ );
+        randomX = Random.Range( -50f, 50f );
+        randomZ = Random.Range( -50f, 50f );
+        moveTo = new Vector3( randomX, 0, randomZ );
+
+        state = NeckbeardState.ACTIVE;
+        
+        gameObject.SetActive( true );
     }
 }
