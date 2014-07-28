@@ -80,7 +80,6 @@ public class goodController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rigidbody.angularVelocity = Vector3.zero;
 		//Debug.Log("HEY THE MAX ANG VELO IS: " + rigidbody.maxAngularVelocity);
 		if(!shiftToggleChange){
 			if(smackable){
@@ -99,17 +98,18 @@ public class goodController : MonoBehaviour {
 			if(smackable){
 				rigidbody.constraints = RigidbodyConstraints.FreezePositionY | rigidbody.constraints;
 				rigidbody.maxAngularVelocity = maxVelo; 
-				rigidbody.velocity = Vector3.zero;
-				//rigidbody.angularVelocity.Set(0f, 10000f, 0f);
-				mouseSensitivity = 700;
+				//rigidbody.velocity = Vector3.zero;
+				rigidbody.angularVelocity.Set(0f, 10000f, 0f);
+				mouseSensitivity = 5000;
 				//cameras[0].GetComponent<SmoothFollow>().enabled = false;
 				movementSpeed = 0f;
 				handHeight = 1f;
 				shiftToggleChange = false;
 				Debug.Log("SMACKING SPINNING! from PLAYER 1: " + isPlayer1);
 			}else{
+				//rigidbody.angularVelocity = Vector3.zero;
 				rigidbody.constraints = ~RigidbodyConstraints.FreezePositionY & rigidbody.constraints;
-				mouseSensitivity = 500;
+				mouseSensitivity = 5000;
 				//cameras[1].GetComponent<SmoothFollow>().enabled = true;
 				rigidbody.maxAngularVelocity = oldAngularVelocity;
 				movementSpeed = 9000f;//oldMovementSpeed;
